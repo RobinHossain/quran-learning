@@ -804,7 +804,7 @@ util.inherits(Peer, EventEmitter);
 // websockets.)
 Peer.prototype._initializeServerConnection = function() {
   var self = this;
-  this.socket = new Socket(this.options.secure, this.options.host, null, this.options.path, this.options.key);
+  this.socket = new Socket(this.options.secure, this.options.host, this.options.port, this.options.path, this.options.key);
   this.socket.on('message', function(data) {
     self._handleMessage(data);
   });
@@ -1421,7 +1421,7 @@ var util = {
   noop: function() {},
 
   CLOUD_HOST: '0.peerjs.com',
-  CLOUD_PORT: 80,
+  CLOUD_PORT: '',
 
   // Browsers that need chunking:
   chunkedBrowsers: {'Chrome': 1},
