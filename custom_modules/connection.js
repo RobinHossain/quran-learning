@@ -210,7 +210,8 @@ peer.on('call', function(call_in) {
             window.remoteStream = stream;
 
             //change_status_button("call_button","green");
-            $('audio').prop('src', URL.createObjectURL(stream));
+            setVideoObjectSrc(document.querySelector('audio'), stream)
+            // $('audio').srcObject = window.URL.createObjectURL(stream);
 
             $("#end_call").show();
             $("#voice_call").hide();
@@ -258,8 +259,8 @@ peer.on('call', function(call_in) {
   						  		call.answer(window.localStream);
   					      		call.on('stream', function(stream){
   				    				window.remoteStream = stream;
-
-  						        	$('#their-video').prop('src', URL.createObjectURL(stream));
+  				    				setVideoObjectSrc(document.getElementById('their-video'), stream)
+  						        	// $('#their-video').srcObject = window.URL.createObjectURL(stream);
   						        	$("#end_video_call").show();
   							    	$("#video_call").hide();
   							    	$("#cancel_video_call").hide();
@@ -408,4 +409,22 @@ function disconnect() {
     }
   }).modal('show');
 
+}
+
+function setVideoObjectSrc(element, stream) {
+  if (stream && stream !== "" && element) {
+    element.autoplay = true;
+
+    if (typeof element.srcObject !== 'undefined') {
+      element.srcObject = stream;
+    } else if (typeof element.mozSrcObject !== 'undefined') {
+      element.mozSrcObject = self.createObjectURL(stream);
+    } else if (typeof element.src !== 'undefined') {
+      element.src = self.createObjectURL(stream);
+    }
+  }
+  else {
+    console.log(element)
+    // self.clearMediaStream(element);
+  }
 }

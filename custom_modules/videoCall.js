@@ -13,8 +13,10 @@ $("#video_call").click(function(e) {
     call.on('stream', function(stream) {
       window.remoteStream = stream;
       $("#cancel_video_call").hide();
- $('#their-video').prop('src', URL.createObjectURL(stream));
-      $('#their-video-smaller').prop('src', URL.createObjectURL(stream));
+        setVideoObjectSrc(document.getElementById('my-their-video'), stream)
+        setVideoObjectSrc(document.getElementById('their-video-smaller'), stream)
+ // $('#their-video').prop('srcObject', window.URL.createObjectURL(stream));
+ //      $('#their-video-smaller').prop('srcObject', window.URL.createObjectURL(stream));
       $("#end_video_call").show();
       $("#voice_call").hide();});
     call.on('close', function() {
@@ -41,14 +43,20 @@ $("#video_call").click(function(e) {
 
 
 function get_cam(){
+  navigator.getUserMedia = navigator.getUserMedia ||
+      navigator.webkitGetUserMedia ||
+      navigator.mozGetUserMedia;
+  if (navigator.getUserMedia){
     navigator.getUserMedia({audio: true, video: true}, function(stream){
-          window.localStream = stream;
-          $('my-video').show();
-          $('#my-video').prop('src', URL.createObjectURL(stream));
-        },function(){
-          console.log("Video not granted");
-        });
+      window.localStream = stream;
+      $('my-video').show();
+      setVideoObjectSrc(document.getElementById('my-video'), stream)
+    },function(){
+      console.log("Video not granted");
+    });
   }
+  }
+
 
   $("#end_video_call").click(function(e) {
     e.preventDefault();
