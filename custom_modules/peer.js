@@ -831,8 +831,8 @@ Peer.prototype._retrieveId = function(cb) {
   var self = this;
   var http = new XMLHttpRequest();
   var protocol = this.options.secure ? 'https://' : 'http://';
-  // var url = protocol + this.options.host + ':' + this.options.port + this.options.path + this.options.key + '/id';
-  var url = protocol + this.options.host + this.options.path + this.options.key + '/id';
+  var url = protocol + this.options.host + ':' + this.options.port +
+    this.options.path + this.options.key + '/id';
   var queryString = '?ts=' + new Date().getTime() + '' + Math.random();
   url += queryString;
 
@@ -1157,8 +1157,8 @@ Peer.prototype.listAllPeers = function(cb) {
   var self = this;
   var http = new XMLHttpRequest();
   var protocol = this.options.secure ? 'https://' : 'http://';
-  // var url = protocol + this.options.host + ':' + this.options.port + this.options.path + this.options.key + '/peers';
-  var url = protocol + this.options.host + this.options.path + this.options.key + '/peers';
+  var url = protocol + this.options.host + ':' + this.options.port +
+    this.options.path + this.options.key + '/peers';
   var queryString = '?ts=' + new Date().getTime() + '' + Math.random();
   url += queryString;
 
@@ -1421,7 +1421,7 @@ var util = {
   noop: function() {},
 
   CLOUD_HOST: '0.peerjs.com',
-  CLOUD_PORT: '',
+  CLOUD_PORT: '443',
 
   // Browsers that need chunking:
   chunkedBrowsers: {'Chrome': 1},
