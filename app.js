@@ -10,8 +10,8 @@ app.use(cors())
 var server = require('http').createServer(app);
 // var io = require('socket.io')(server);
 
-app.use(express.static(__dirname + 'node_modules'));
-app.use(express.static(__dirname + 'custom_modules'));
+app.use(express.static(__dirname + '/node_modules'));
+app.use(express.static(__dirname + '/custom_modules'));
 
 
 var options = {
