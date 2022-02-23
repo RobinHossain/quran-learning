@@ -90,17 +90,20 @@ function changeD2(data){
 // });
 
 //
-var peer = new Peer(name, {host: 'atorali.com', port: 443,debug:3, path: '/',config: {
+var peer = new Peer(name, {host: 'atorali.com', port: 80, debug:3, path: '/api',config: {
   icerServers: [
-    { url: 'stun:stun1.l.google.com:19302' },
-    { url: 'turn:numb.viagenie.ca', credential: 'randompass', username: 'mtanmoy5086@gmail.com' }
+    // { url: 'stun:stun1.l.google.com:19302' },
+    // { url: 'turn:numb.viagenie.ca', credential: 'randompass', username: 'mtanmoy5086@gmail.com' }
     // { url: 'stun:stun.l.google.com:19302' },
     // { url: 'stun:stun.sipgate.net' },
     // { url: 'stun:217.10.68.152' },
     // { url: 'stun:stun.sipgate.net:10000' },
     // { url: 'stun:217.10.68.152:10000' },
+    { url: 'stun:stun.l.google.com:19302' },
+    { url: 'turn:homeo@turn.bistri.com:80', credential: 'homeo' }
  ]
-}
+},
+  secure : false
 });
 
 
