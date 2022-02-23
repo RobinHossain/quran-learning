@@ -723,7 +723,7 @@ function Peer(id, options) {
   options = util.extend({
     debug: 0, // 1: Errors, 2: Warnings, 3: All logs
     host: util.CLOUD_HOST,
-    // port: util.CLOUD_PORT,
+    port: util.CLOUD_PORT,
     key: 'peerjs',
     path: '/',
     token: util.randomToken(),
@@ -1421,7 +1421,7 @@ var util = {
   noop: function() {},
 
   CLOUD_HOST: '0.peerjs.com',
-  CLOUD_PORT: 9000,
+  CLOUD_PORT: 80,
 
   // Browsers that need chunking:
   chunkedBrowsers: {'Chrome': 1},
