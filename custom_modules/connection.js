@@ -90,7 +90,7 @@ function changeD2(data){
 // });
 
 //
-var peer = new Peer(name, {host: 'atorali.com', port: 80, debug:3, path: '/api',config: {
+var peer = new Peer(name, {host: 'atorali.com', port: 443, debug:3, path: '/api',config: {
   icerServers: [
     // { url: 'stun:stun1.l.google.com:19302' },
     // { url: 'turn:numb.viagenie.ca', credential: 'randompass', username: 'mtanmoy5086@gmail.com' }
@@ -103,7 +103,7 @@ var peer = new Peer(name, {host: 'atorali.com', port: 80, debug:3, path: '/api',
     { url: 'turn:homeo@turn.bistri.com:80', credential: 'homeo' }
  ]
 },
-  secure : false
+  secure : true
 });
 
 

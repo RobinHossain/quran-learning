@@ -1421,7 +1421,7 @@ var util = {
   noop: function() {},
 
   CLOUD_HOST: '0.peerjs.com',
-  CLOUD_PORT: 80,
+  CLOUD_PORT: 443,
 
   // Browsers that need chunking:
   chunkedBrowsers: {'Chrome': 1},
