@@ -90,7 +90,7 @@ function changeD2(data){
 // });
 
 //
-var peer = new Peer(name, {host: 'atorali.com', port: 9000,debug:3, path: '/',config: {
+var peer = new Peer(name, {host: 'localhost', port: 9000,debug:3, path: '/',config: {
   icerServers: [
     { url: 'stun:stun1.l.google.com:19302' },
     { url: 'turn:numb.viagenie.ca', credential: 'randompass', username: 'mtanmoy5086@gmail.com' }
