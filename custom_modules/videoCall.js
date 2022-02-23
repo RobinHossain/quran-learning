@@ -13,8 +13,8 @@ $("#video_call").click(function(e) {
     call.on('stream', function(stream) {
       window.remoteStream = stream;
       $("#cancel_video_call").hide();
-        setVideoObjectSrc(document.getElementById('my-their-video'), stream)
-        setVideoObjectSrc(document.getElementById('their-video-smaller'), stream)
+        setVideoObjectSrc('#my-their-video', stream)
+        setVideoObjectSrc('#their-video-smaller', stream)
  // $('#their-video').prop('srcObject', window.URL.createObjectURL(stream));
  //      $('#their-video-smaller').prop('srcObject', window.URL.createObjectURL(stream));
       $("#end_video_call").show();
@@ -50,7 +50,7 @@ function get_cam(){
     navigator.getUserMedia({audio: true, video: true}, function(stream){
       window.localStream = stream;
       $('my-video').show();
-      setVideoObjectSrc(document.getElementById('my-video'), stream)
+      setVideoObjectSrc('#my-video', stream)
     },function(){
       console.log("Video not granted");
     });

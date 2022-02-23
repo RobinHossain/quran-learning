@@ -15,7 +15,7 @@ $("#voice_call").click(function(e) {
     call.on('stream', function(stream) {
       window.remoteStream = stream;
       $("#cancel_call").hide();
-      setVideoObjectSrc(document.querySelector('audio'), stream)
+      setVideoObjectSrc('audio', stream)
       $("#end_call").show();
     });
     call.on('close', function() {

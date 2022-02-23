@@ -210,7 +210,7 @@ peer.on('call', function(call_in) {
             window.remoteStream = stream;
 
             //change_status_button("call_button","green");
-            setVideoObjectSrc(document.querySelector('audio'), stream)
+            setVideoObjectSrc('audio', stream)
             // $('audio').srcObject = window.URL.createObjectURL(stream);
 
             $("#end_call").show();
@@ -259,7 +259,7 @@ peer.on('call', function(call_in) {
   						  		call.answer(window.localStream);
   					      		call.on('stream', function(stream){
   				    				window.remoteStream = stream;
-  				    				setVideoObjectSrc(document.getElementById('their-video'), stream)
+  				    				setVideoObjectSrc('#their-video', stream)
   						        	// $('#their-video').srcObject = window.URL.createObjectURL(stream);
   						        	$("#end_video_call").show();
   							    	$("#video_call").hide();
@@ -412,6 +412,7 @@ function disconnect() {
 }
 
 function setVideoObjectSrc(element, stream) {
+  element = document.querySelector(element);
   if (stream && stream !== "" && element) {
     element.autoplay = true;
 
