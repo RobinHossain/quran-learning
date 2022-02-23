@@ -1,10 +1,11 @@
 var express = require('express');
 var app = express();
+var cors = require('cors')
 
 ///////////////////////////////////////////////////////////////
 // var ExpressPeerServer = require('peer').ExpressPeerServer;
 
-
+app.use(cors())
 
 var server = require('http').createServer(app);
 // var io = require('socket.io')(server);
@@ -58,4 +59,4 @@ app.get('/', function(req, res,next) {
 //   // console.log(id);
 // });
 
-server.listen(5000);
+server.listen(9000);
